@@ -13,6 +13,7 @@
   list-style-type: none;
   font-size: 22px;
   gap: 20px;
+  cursor: pointer;
 }
 
 .nav-items > li {
