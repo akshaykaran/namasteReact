@@ -3,23 +3,23 @@ import RestaurantCard from "./RestaurantCard";
 // import resObj from "../utils/mockfile";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import { SWIGGY_MAIN_API } from "../utils/Constants";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 export default Body = () => {
   const [restaurantList, setRestaurantList] = useState([]);
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   const [searchText, setSearchText] = useState("");
+  const onlineStatus = useOnlineStatus();
 
   useEffect(() => {
     fetchData();
   }, []);
 
   const fetchData = async () => {
-    const data = await fetch(
-      "https://thingproxy.freeboard.io/fetch/https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.568352535099123&lng=88.50975226610899&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-    );
+    const data = await fetch(SWIGGY_MAIN_API);
 
     const json = await data.json();
-    console.log("json", json);
 
     setRestaurantList(
       json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
@@ -28,6 +28,15 @@ export default Body = () => {
       json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
+
+  if (!onlineStatus) {
+    return (
+      <h1>
+        Looks like your internet connection is broken!! Please check your
+        connection.
+      </h1>
+    );
+  }
 
   return filteredRestaurants.length === 0 ? (
     <Shimmer />

@@ -68,3 +68,7 @@
 .search {
   margin: 0px 20px;
 }
+
+.userCard {
+  border: 2px solid black;
+}
