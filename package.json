@@ -2,10 +2,9 @@
   "name": "namaste-react",
   "version": "1.0.0",
   "description": "this is learning react beginner to advanced",
-
   "scripts": {
-    "start": "parcel App.js",
-    "build": "parcel build App.js",
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
     "test": "jest"
   },
   "repository": {
