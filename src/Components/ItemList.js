@@ -1,5 +1,5 @@
 import React from "react";
-import { CARD_IMG } from "../utils/Constants";
+import { CARD_IMG } from "../utils/constants";
 import { useDispatch } from "react-redux";
 import { addItem } from "../utils/cartSlice";
 

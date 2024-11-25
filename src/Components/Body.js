@@ -3,7 +3,7 @@ import RestaurantCard, { withPromotedLabel } from "./RestaurantCard";
 // import resObj from "../utils/mockfile";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
-import { SWIGGY_MAIN_API } from "../utils/Constants";
+import { SWIGGY_MAIN_API } from "../utils/constants";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
 
