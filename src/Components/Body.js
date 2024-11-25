@@ -1,16 +1,19 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import RestaurantCard, { withPromotedLabel } from "./RestaurantCard";
 // import resObj from "../utils/mockfile";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import { SWIGGY_MAIN_API } from "../utils/Constants";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 
 export default Body = () => {
   const [restaurantList, setRestaurantList] = useState([]);
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   const [searchText, setSearchText] = useState("");
   const onlineStatus = useOnlineStatus();
+
+  const { loggedinUser } = useContext(UserContext);
 
   console.log("restaurantList", restaurantList);
 
@@ -79,6 +82,7 @@ export default Body = () => {
             Top Rated Restaurants
           </button>
         </div>
+        <p>{loggedinUser}</p>
       </div>
       <div className="flex justify-center items-center flex-wrap">
         {filteredRestaurants.map((restaurant) => (

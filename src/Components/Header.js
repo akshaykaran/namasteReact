@@ -1,12 +1,20 @@
 import { LOGO_IMG } from "../utils/Constants";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const [loginName, setLoginName] = useState("LOGIN");
 
+  const { loggedinUser } = useContext(UserContext);
+
   const onlineStatus = useOnlineStatus();
+
+  const cartItems = useSelector((store) => store.cart.items);
+
+  console.log("cartItems", cartItems);
 
   return (
     <div>
@@ -28,8 +36,8 @@ const Header = () => {
           <li className="p-4 font-bold hover:border-b-4 border-red-700 ease-in-out duration-100">
             <Link to="/grocery">Grocery</Link>
           </li>
-          <li className="p-4 font-bold hover:border-b-4 border-red-700 ease-in-out duration-100">
-            Cart
+          <li className="p-4 font-bold hover:border-b-4 border-red-700 ease-in-out duration-100 text-xl">
+            <Link to="/cart">Cart ({cartItems.length} items)</Link>
           </li>
           <button
             className="px-4 py-2 m-4 bg-blue-300 font-bold rounded-lg border border-black hover:border-2 ease-in-out duration-100 "
@@ -41,6 +49,9 @@ const Header = () => {
           >
             {loginName}
           </button>
+          <li className="p-4 font-bold hover:border-b-4 border-red-700 ease-in-out duration-100">
+            {loggedinUser}
+          </li>
         </ul>
       </div>
     </div>
