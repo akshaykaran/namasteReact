@@ -43,8 +43,8 @@ const Header = () => {
             className="px-4 py-2 m-4 bg-blue-300 font-bold rounded-lg border border-black hover:border-2 ease-in-out duration-100 "
             onClick={() =>
               loginName === "LOGIN"
-                ? setLoginName("LOGIN")
-                : setLoginName("LOGOUT")
+                ? setLoginName("LOGOUT")
+                : setLoginName("LOGIN")
             }
           >
             {loginName}
