@@ -4,7 +4,7 @@
   "description": "this is learning react beginner to advanced",
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel index.html",
+    "build": "parcel build index.html --no-cache --log-level verbose",
     "test": "jest"
   },
   "repository": {
