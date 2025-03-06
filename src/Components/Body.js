@@ -23,9 +23,10 @@ const Body = () => {
     fetchData();
   }, []);
 
+  const CORS_PROXY = "https://cors-anywhere.herokuapp.com/";
   const fetchData = async () => {
     try {
-      const data = await fetch(SWIGGY_MAIN_API);
+      const data = await fetch("http://localhost:5000/swiggy-data");
 
       const json = await data.json();
 
