@@ -7,7 +7,7 @@ import { SWIGGY_MAIN_API } from "../utils/constants";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
 
-export default Body = () => {
+const Body = () => {
   const [restaurantList, setRestaurantList] = useState([]);
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   const [searchText, setSearchText] = useState("");
@@ -101,3 +101,5 @@ export default Body = () => {
     </div>
   );
 };
+
+export default Body;
