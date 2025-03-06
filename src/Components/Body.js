@@ -24,16 +24,22 @@ const Body = () => {
   }, []);
 
   const fetchData = async () => {
-    const data = await fetch(SWIGGY_MAIN_API);
+    try {
+      const data = await fetch(SWIGGY_MAIN_API);
 
-    const json = await data.json();
+      const json = await data.json();
 
-    setRestaurantList(
-      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
-    setFilteredRestaurants(
-      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
+      const restaurants =
+        json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+          ?.restaurants || [];
+
+      setRestaurantList(restaurants);
+      setFilteredRestaurants(restaurants);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      setRestaurantList([]);
+      setFilteredRestaurants([]);
+    }
   };
 
   if (!onlineStatus) {
@@ -45,9 +51,7 @@ const Body = () => {
     );
   }
 
-  return filteredRestaurants.length === 0 ? (
-    <Shimmer />
-  ) : (
+  return (
     <div>
       <div className=" flex items-center justify-center ">
         <div className="m-4 flex items-center w-auto px-4">
@@ -85,7 +89,7 @@ const Body = () => {
         <p>{loggedinUser}</p>
       </div>
       <div className="flex justify-center items-center flex-wrap">
-        {filteredRestaurants.map((restaurant) => (
+        {/* {filteredRestaurants.map((restaurant) => (
           <Link
             key={restaurant.info.id}
             to={"/restaurants/" + restaurant.info.id}
@@ -96,7 +100,24 @@ const Body = () => {
               <RestaurantCard resData={restaurant} />
             )}
           </Link>
-        ))}
+        ))} */}
+        {Array.isArray(filteredRestaurants) &&
+        filteredRestaurants.length > 0 ? (
+          filteredRestaurants.map((restaurant) => (
+            <Link
+              key={restaurant.info.id}
+              to={"/restaurants/" + restaurant.info.id}
+            >
+              {restaurant.info.isOpen ? (
+                <RestaurantCardPromoted resData={restaurant} />
+              ) : (
+                <RestaurantCard resData={restaurant} />
+              )}
+            </Link>
+          ))
+        ) : (
+          <Shimmer />
+        )}
       </div>
     </div>
   );
