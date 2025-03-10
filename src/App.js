@@ -1,7 +1,7 @@
 import React, { lazy, Suspense, useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./Components/Header";
-import Body from "./Components/Body";
+// import Body from "./Components/Body";
 import AboutUs from "./Components/AboutUs";
 import ErrorPage from "./Components/ErrorPage";
 import ContactUs from "./Components/ContactUs";
@@ -11,6 +11,7 @@ import UserContext from "./utils/UserContext";
 import { Provider } from "react-redux";
 import appStore from "./utils/appStore";
 import Cart from "./Components/Cart";
+import Home from "./Components/Home";
 // import Grocery from "./Components/Grocery";
 
 const Grocery = lazy(() => import("./Components/Grocery"));
@@ -36,7 +37,6 @@ const AppLayout = () => {
     </Provider>
   );
 };
-//lazy loading
 const appRouter = createBrowserRouter([
   {
     path: "/",
@@ -44,7 +44,7 @@ const appRouter = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Body />,
+        element: <Home />,
       },
       {
         path: "/about",

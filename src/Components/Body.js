@@ -45,7 +45,7 @@ const Body = () => {
 
   if (!onlineStatus) {
     return (
-      <h1>
+      <h1 className="flex justify-center text-9xl font-bold tracking-tighter  border-8 border-white">
         Looks like your internet connection is broken!! Please check your
         connection.
       </h1>
@@ -54,29 +54,29 @@ const Body = () => {
 
   return (
     <div>
-      <div className=" flex items-center justify-center ">
-        <div className="m-4 flex items-center w-auto px-4">
+      <div className=" flex items-center justify-center h-36 p-10 bg-gray-800">
+        <div className=" flex items-center w-2/3 px-4">
           <input
             type="text"
-            className="border-2 border-black w-72 rounded-md"
+            className="px-8 py-3 m-4 border-2 border-black rounded-xl w-full"
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
           />
-          <div className="px-4 py-2 m-4 bg-green-100 rounded-lg border border-black">
-            <button
-              onClick={() => {
-                const filteredSearch = restaurantList.filter((res) =>
-                  res.info?.name.toLowerCase().includes(searchText)
-                );
-                setFilteredRestaurants(filteredSearch);
-              }}
-            >
-              search
-            </button>
-          </div>
-        </div>
-        <div className="px-4 py-2 m-4 bg-green-100 rounded-lg border border-black">
           <button
+            className="px-8 py-3 m-4 font-bold text-black rounded-xl bg-white transition-all duration-300 ease-in-out hover:bg-orange-500 hover:scale-105 hover:shadow-lg"
+            onClick={() => {
+              const filteredSearch = restaurantList.filter((res) =>
+                res.info?.name.toLowerCase().includes(searchText)
+              );
+              setFilteredRestaurants(filteredSearch);
+            }}
+          >
+            Search
+          </button>
+        </div>
+        <div className="w-1/3 flex justify-end">
+          <button
+            className="px-8 py-3 m-4 font-bold text-black rounded-xl bg-white transition-all duration-300 ease-in-out hover:bg-orange-500 hover:scale-105 hover:shadow-lg"
             onClick={() => {
               const filteringRes = restaurantList.filter(
                 (res) => res.info.avgRating > 4.5
@@ -87,7 +87,6 @@ const Body = () => {
             Top Rated Restaurants
           </button>
         </div>
-        <p>{loggedinUser}</p>
       </div>
       <div className="flex justify-center items-center flex-wrap">
         {/* {filteredRestaurants.map((restaurant) => (
