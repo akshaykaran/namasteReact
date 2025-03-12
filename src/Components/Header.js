@@ -15,8 +15,6 @@ const Header = () => {
 
   const cartItems = useSelector((store) => store.cart.items);
 
-  console.log("cartItems", cartItems);
-
   return (
     <div className="sticky top-0">
       <div className="flex justify-between items-center bg-orange-500 shadow-lg h-24 px-20">
