@@ -1,15 +1,14 @@
 {
   "name": "namaste-react",
   "version": "1.0.0",
-  "description": "this is learning react beginner to advanced",
-  "type": "module",
+  "description": "this is learning react project by Akshay Vinayak",
+  "main": "App.js",
   
   "scripts": {
-  "start": "npm-run-all --parallel server client",
-  "server": "node server.js",
-  "client": "parcel index.html",
-  "build": "parcel build index.html --dist-dir dist"
-},
+    "test": "jest",
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/akshaykaran/namasteReact.git"

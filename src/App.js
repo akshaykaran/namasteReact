@@ -20,7 +20,6 @@ const AppLayout = () => {
   const [userName, setUserName] = useState(null);
 
   useEffect(() => {
-    //some API call t get the authentication details say,
     const data = {
       name: "Akshay Vinayak",
     };
@@ -79,4 +78,4 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(<RouterProvider router={appRouter} />);
 
-export default AppLayout;
+// export default AppLayout;

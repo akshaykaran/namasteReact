@@ -40,7 +40,8 @@ const Body = () => {
 
   const fetchData = async () => {
     try {
-      const data = await fetch("http://localhost:5000/swiggy-data");
+      // const data = await fetch("http://localhost:5000/swiggy-data");
+      const data = await fetch(SWIGGY_MAIN_API);
       const json = await data.json();
       const restaurants =
         json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
