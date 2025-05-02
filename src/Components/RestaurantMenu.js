@@ -28,7 +28,9 @@ function RestaurantMenu() {
 
   return (
     <div className="text-center my-6">
-      <h1 className="font-bold text-lg">{name}</h1>
+      <h1 className="font-bold text-5xl border-b-4 border-orange-500">
+        {name}
+      </h1>
       {categories.map((category, index) => (
         <RestaurantCategory
           data={category?.card?.card}

@@ -9,10 +9,10 @@ const RestaurantCategory = ({ data, showItemsList, setShowIndex }) => {
   return (
     <div>
       <div
-        className="w-6/12 bg-gray-200 shadow-lg p-4 mx-auto my-6 cursor-pointer rounded-lg"
+        className="w-6/12 bg-gray-200 shadow-lg p-4 mx-auto my-6 cursor-pointer rounded-lg relative"
         onClick={handleClick}
       >
-        <div className="flex justify-between">
+        <div className="flex justify-between ">
           <span className="font-bold">
             {data?.title} ({data.itemCards.length})
           </span>

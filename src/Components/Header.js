@@ -16,7 +16,7 @@ const Header = () => {
   const cartItems = useSelector((store) => store.cart.items);
 
   return (
-    <div className="sticky top-0">
+    <div className="sticky top-0 z-10">
       <div className="flex justify-between items-center bg-orange-500 shadow-lg h-24 px-20">
         <div className="flex text-white p-4 m-4 items-end h-24 w-1/3">
           <img className="w-28 h-20 ml-4" src={logo_ub} alt="Company logo" />
