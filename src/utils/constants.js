@@ -8,7 +8,7 @@ export const LOGO_IMG =
 //   "https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.568352535099123&lng=88.50975226610899&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
 
 export const SWIGGY_MAIN_API =
-  "https://www.swiggy.com/dapi/restaurants/list/v5?lat=26.9168781&lng=75.734032&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
+  "https://corsproxy.io/https://www.swiggy.com/dapi/restaurants/list/v5?lat=26.9168781&lng=75.734032&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
 
 // export const MENU_API =
 //   "https://thingproxy.freeboard.io/fetch/https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=22.568352535099123&lng=88.50975226610899&restaurantId=";
@@ -16,4 +16,4 @@ export const SWIGGY_MAIN_API =
 //https://thingproxy.freeboard.io/fetch/
 
 export const MENU_API =
-  "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=26.9168781&lng=75.734032&restaurantId=";
+  "https://corsproxy.io/https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=26.9168781&lng=75.734032&restaurantId=";
